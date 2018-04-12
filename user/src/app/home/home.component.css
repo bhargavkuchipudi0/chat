@@ -1,0 +1,60 @@
+/* *{ margin: 0; padding: 0; box-sizing: border-box; }
+body { font: 13px Helvetica, Arial; }
+div { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+div input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+div button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+#messages { list-style-type: none; margin: 0; padding: 0; }
+#messages li { padding: 5px 10px; }
+#messages li:nth-child(odd) { background: #eee; } */
+
+.chat-box{
+    
+    width:400px;
+    height:450px;
+    background-color: rgb(246, 166, 75);
+    border-radius: 7px;
+    left:100%;
+    top:50%;
+    transform: translate(120%,25%);
+}
+.msg-input{
+    top:-10%;
+    transform: translate(1%,-35%);
+    left: 15px;
+    /* position: absolute; */
+}
+#msg{
+    width:300px;
+    height:35px;
+    outline: none;
+    border-radius: 6px;
+    border: 2px solid lightpink;
+    font-size:20px;
+}
+#btn{
+    width:70px;
+    height:40px;
+    /* left: 10%; */
+    transform: translate(10%,-3%);
+    outline:none;
+    border-radius: 6px;
+    background-color: lightyellow;
+    font-size: 110%
+    
+}
+#messages{
+    list-style-type: none;
+    /* border:2px solid red; */
+    height:400px;
+    overflow:auto;
+}
+#con-user-li{
+    list-style-type: none;
+    overflow: auto;
+    width: 20%;
+    height:50vh;   
+}
+.connected-users{
+    top:-100%;
+    transform: translate(0,-100%);
+}

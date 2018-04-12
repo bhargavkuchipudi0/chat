@@ -1,0 +1,16 @@
+<body>
+  <div class="login-div">
+    <div class="login-in">
+        <!-- <label>Name</label><br> -->
+        <input type="text" [(ngModel)]="name" class="log-name" placeholder="Name"><br><br>
+        <!-- <label>Email</label><br> -->
+        <input type="text" [(ngModel)]="email" class="log-email" placeholder="Email@***.com"><br><br>
+        <!-- <label>Password</label><br> -->
+        <input type="password" [(ngModel)]="password" class="log-password" placeholder="Password"><br><br>
+        <p class="err" id="name-err" style="color:red"></p>
+        <p class="err" id="email-err" style="color:red"></p>
+        <p class="err" id="password-err" style="color:red"></p>
+        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" value="login" class="sub-but" (click)="submit_det()">
+      </div>
+  </div>
+  </body>
