@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from "../services/auth.service";
 import * as io from 'socket.io-client';
 declare var $:any;
  
@@ -9,18 +10,18 @@ declare var $:any;
 })
 export class HomeComponent implements OnInit {
 
-  socket: SocketIOClient.Socket;
+  socket: io.Socket;
   msg:string;
   name:string;
   email:string;
   id:string="12345678";
-  constructor() { 
+  allUsers = [];
+  constructor(private authService:AuthService) { 
     let user = localStorage.getItem('user');
     let u = JSON.parse(user);
     this.name = u.name;
     this.email = u.email;
-    this.socket = io.connect("http://localhost:3000",{query:{name:this.name,client_id:this.id}});
-
+    this.socket = io.connect("http://localhost:3000",{query:{email:this.email,client_id:this.id}});
   }
   
   ngOnInit() {
@@ -34,10 +35,24 @@ export class HomeComponent implements OnInit {
       $('#con-user-li').append($('<li style="border:1px solid black;height:30px;background-color:#81F7D8;width:200px;border-radius:10px;text-align:center;padding:5px;font-size:20px;cursor:pointer;"><a></a></li><br>').text(msg.msg)).click(function(){alert(msg.client_id);});
       // alert("newuser");
     })
+    this.get_all_user();
+  }
 
+  get_all_user(){
+    setInterval(() => {
+      this.authService.get_all_users().subscribe(res => {
+        console.log(res);
+        if(res.success){
+          this.allUsers = res.msg;
+        }
+      });
+    },10000);
+  }
+  privateMsg(obj){
+    console.log(obj);
+    this.socket.emit('private',obj);
   }
       submit(){
-        
         let user = localStorage.getItem('user');
         let u = JSON.parse(user);
         this.name = u.name;

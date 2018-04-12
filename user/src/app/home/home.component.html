@@ -11,3 +11,12 @@
 
   </ul>
 </div>
+
+<div class="all-users">
+  <div *ngFor="let x of allUsers">
+    <div class="users-holder" (click)="privateMsg(x)">
+      name:{{x.name}}
+      id:{{x.socket_id}}
+    </div>
+  </div>
+</div>

@@ -1,6 +1,5 @@
 import { Component , OnInit} from '@angular/core';
 import { Router, ActivatedRoute, Params } from "@angular/router";
-
 import { ValidateService } from "../services/validate.service";
 import { AuthService } from "../services/auth.service";
 
@@ -32,14 +31,13 @@ export class LoginComponent implements OnInit {
             email:this.email,
             password:this.password
           }
-          console.log(user);
-          this.user = JSON.stringify(user);
-            localStorage.setItem('user',this.user);
-            this.router.navigate(['home']);
-          // this.authservice.registerUser(user).subscribe(res => {
-          //   console.log(res);
-          
-          // })
+          this.authservice.registerUser(user).subscribe(user => {
+            if(user.success){
+              this.user = JSON.stringify(user.msg);
+                localStorage.setItem('user',this.user);
+                this.router.navigate(['home']);
+            }
+          })
         }else{
           $('#password-err').html('Please enter your password');
           $('.log-password').css({'border':'1px solid red'});
