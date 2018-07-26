@@ -1,62 +1,148 @@
-body{
-    background-image: url("../../assets/images/main-back.jpg");
-    background-size: cover;
-    background-position: center;
-    height:100vh;
-    width: 100vw;
-    background-repeat: no-repeat;
-    overflow: hidden;
-    top: 0 !important;
-    margin: 0 !important;
-    left: 0 !important;
-    bottom: 0 !important;
-    padding: 0 !important;
-    
+.login-cont {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    /* background: linear-gradient(to right, #ffffff , #dddddd); */
 }
-.login-div{
-    margin:0;
-    padding:0;
-    width:370px;
-    height:300px;
-    /* background-color:rgb(199, 197, 197); */
-    background-color: lightskyblue;
-    margin-left:460px;
-    margin-top:180px;
-    border-radius: 5px;    
+.m-img {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.login-in{
-    /* text-align: center; */
-    padding-top: 60px;
-    padding-left:60px;
+.content {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
-.log-name{
-    height:25px;
-    width:250px;
-    border-radius: 5px;
-    border:2px solid rgb(252, 216, 216);
+.content p {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 15px;
+}
+.content h1 {
+    font-size: 24px;
+    font-weight: 450;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 15px;
+    color: #a20023;
+}
+.entry {
+    width: 40%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.signup-div {
+    height: 65%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px dashed #888888;
+}
+.signup-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    position: relative;
+}
+.signup-div input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 10px;
+    letter-spacing: 1px;
+    border: 0;
+    border: 2px solid #888888;
+    border-radius: 3px;
     outline: none;
-    font-size: 18px;
+
 }
-.log-email{
-    height:25px;
-    width:250px;
-    border-radius: 5px;
-    border:2px solid rgb(252, 216, 216);
-    outline: none;
-    font-size: 18px;
+.signup-div .is-invalid {
+    border: 2px dashed #a20023;
 }
-.log-password{
-    height:25px;
-    width:250px;
+.signup-div .btn {
+    width: 100px;
+    height: 40px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 10px;
+    border: 0;
+    border: 2px solid #a20023;
+    background-color: #ffffff;
     border-radius: 5px;
-    border:2px solid rgb(252, 216, 216);
+    color: #a20023;
+    cursor: pointer;
     outline: none;
-    font-size: 18px;
 }
-.sub-but{
-    width:75px;
-    height:30px;
-    border-radius: 5px;
-    background-color:lightseagreen;
+.signup-div h1 {
+    margin: 0;
+    color: #a20023;
+}
+.signup-div p {
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    font-size: 14px;
+    color: #888888;
+}
+.login-div {
+    height: 35%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.login-div h1 {
+    color: #a20023;
+}
+.login-div .login-form {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.login-div input{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 10px;
+    letter-spacing: 1px;
+    border: 0;
+    border: 2px solid #888888;
+    border-radius: 3px;
     outline: none;
+}
+.login-div .btn {
+    width: 100px;
+    height: 40px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 10px;
+    border: 0;
+    background-color: #a20023;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+}
+.login-div .is-invalid {
+    border: 2px dashed #a20023;
 }

@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     let u = JSON.parse(user);
     this.name = u.name;
     this.email = u.email;
-    this.socket = io.connect("http://localhost:3000",{query:{email:this.email,client_id:this.id}});
+    this.socket = io.connect("http://192.168.3.12:3000",{query:{email:this.email,client_id:this.id}});
   }
   
   ngOnInit() {

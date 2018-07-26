@@ -2,7 +2,7 @@ import { Component , OnInit} from '@angular/core';
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { ValidateService } from "../services/validate.service";
 import { AuthService } from "../services/auth.service";
-
+import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 declare var $:any;
 
 @Component({
@@ -11,44 +11,69 @@ declare var $:any;
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  title = 'app';
-  constructor( private validate:ValidateService,private authservice:AuthService,private router:Router){}
+  constructor( private validate:ValidateService,private authservice:AuthService,private router:Router, public fb:FormBuilder){}
 
-  name:string;
-  email:string;
-  password:string;
-  user:any;
+  firstname:string;
+  lastname:string;
+  email;
+  phonenumber:any;
+  password:any;
+  formgroup:FormGroup;
+  signupform;
+  loginform;
+
   ngOnInit(){
-  
+    this.signupform = this.fb.group({
+      firstname: ['',Validators.required,],
+      lastname:['', Validators.required],
+      email: ['', [Validators.required,Validators.email]],
+      phonenumber:['', Validators.required],
+      password:['',Validators.required]
+    });
+
+    this.loginform = this.fb.group({
+      email:['', [Validators.required, Validators.email]],
+      password:['', Validators.required]
+    });
+
   }
-  submit_det(){
-      
-    if(this.validate.validateInput(this.name) && this.validate.validateInput(this.email)){
-      if(this.validate.validateEmail(this.email)){
-        if(this.validate.validateInput(this.password)){
-          let user = {
-            name:this.name,
-            email:this.email,
-            password:this.password
-          }
-          this.authservice.registerUser(user).subscribe(user => {
-            if(user.success){
-              this.user = JSON.stringify(user.msg);
-                localStorage.setItem('user',this.user);
-                this.router.navigate(['home']);
-            }
-          })
-        }else{
-          $('#password-err').html('Please enter your password');
-          $('.log-password').css({'border':'1px solid red'});
-      }
-    }else{
-     $('#email-err').html("Please enter valide Email");
-     $('.log-email').css({'border':'red'});
+
+  signupSubmit() {
+    this.markFormGroupTouched(this.signupform); //this will check for untouched formfields and validates them
+    if(this.signupform.valid) {
+      this.authservice.registerUser(this.signupform.value).subscribe((response) => {
+        console.log(response);
+        if(response.success) {
+          this.signupform.reset();
+        }
+      });
+    } else {
+
     }
-  }else{
-    $('#name-err').html("please enter your name & eamil");
-    $('.log-name').css({'border':'1px solid red'});
   }
-}
+
+  loginSubmit(){
+    this.markFormGroupTouched(this.loginform);
+    if(this.loginform.valid) {
+      this.authservice.loginUser(this.loginform.value).subscribe((response) => {
+        console.log(response);
+        if(response.success) {
+          this.loginform.reset();
+        }
+      })
+    } else {
+
+    }
+  }
+
+  
+  markFormGroupTouched(formGroup: FormGroup) {                          
+    (<any>Object).values(formGroup.controls).forEach(control => {       
+      control.markAsTouched();
+      if (control.controls) {
+        control.controls.forEach(c => this.markFormGroupTouched(c));
+      }
+    });
+  }
+
 }

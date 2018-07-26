@@ -1,16 +1,34 @@
-<body>
-  <div class="login-div">
-    <div class="login-in">
-        <!-- <label>Name</label><br> -->
-        <input type="text" [(ngModel)]="name" class="log-name" placeholder="Name"><br><br>
-        <!-- <label>Email</label><br> -->
-        <input type="text" [(ngModel)]="email" class="log-email" placeholder="Email@***.com"><br><br>
-        <!-- <label>Password</label><br> -->
-        <input type="password" [(ngModel)]="password" class="log-password" placeholder="Password"><br><br>
-        <p class="err" id="name-err" style="color:red"></p>
-        <p class="err" id="email-err" style="color:red"></p>
-        <p class="err" id="password-err" style="color:red"></p>
-        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" value="login" class="sub-but" (click)="submit_det()">
-      </div>
+<div class="login-cont">
+  <div class="m-img">
+    <img src="../../assets/images/Red_Monkey_DJ_Logo.jpg" alt="" width="300px" height="400px">
   </div>
-  </body>
+  <div class="content">
+    <p>Here you go</p>
+    <h1>RED MONKEY</h1>
+    <p>is ready to connect your friends</p>
+    <p>No Cages</p>
+    <p>No Trainer</p>
+  </div>
+  <div class="entry">
+    <div class="signup-div">
+        <h1>Sign Up! for FREE</h1>
+        <p>There is no GST in this forest. This jungle is yours. </p>
+        <form class="signup-form" [formGroup]="signupform" (ngSubmit)="signupSubmit(signupform.value)">
+          <input type="text" placeholder="FirstName" formControlName="firstname" [ngClass]="{'is-invalid':signupform.controls['firstname'].touched && !signupform.controls['firstname'].valid}">
+          <input type="text" placeholder="LastName" formControlName="lastname" [ngClass]="{'is-invalid':signupform.controls['lastname'].touched && !signupform.controls['lastname'].valid}">
+          <input type="email" placeholder="email@crazy.com" formControlName="email" [ngClass]="{'is-invalid':signupform.controls['email'].touched && !signupform.controls['email'].valid}">
+          <input type="number" placeholder="MobileNumber" formControlName="phonenumber" [ngClass]="{'is-invalid':signupform.controls['phonenumber'].touched && !signupform.controls['phonenumber'].valid}">
+          <input type="password" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid':signupform.controls['password'].touched && !signupform.controls['password'].valid}">
+          <button type="submit" class="btn">SignUp</button>
+        </form>
+    </div>
+    <div class="login-div">
+      <h1>Login</h1>
+      <form class="login-form" [formGroup]="loginform" (ngSubmit)="loginSubmit()">
+        <input type="email" placeholder="email@jungle.com" formControlName="email" [ngClass]="{'is-invalid': loginform.controls['email'].touched && !loginform.controls['email'].valid}">
+        <input type="password" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid': loginform.controls['password'].touched && !loginform.controls['password'].valid}">
+        <button type="submit" class="btn">Login</button>
+      </form>
+    </div>
+  </div>
+</div>

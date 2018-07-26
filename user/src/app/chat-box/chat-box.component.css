@@ -1,0 +1,192 @@
+.container {
+    height: 100vh;
+    width: 100%;
+}
+.header {
+    height: 70px;
+    width: 100%;
+    background-color: #adaebd;
+}
+.chat-enclose {
+    width: 100%;
+    min-height: 605px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    background-image: url('http://i.imgur.com/TnNwdvV.png');
+    background-repeat: repeat;
+}
+.users-list {
+    width: calc(30% - 2px);
+    border-right: 2px dashed #ffffff;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.user-chat {
+    width: 70%;
+    height: 605px;
+    box-sizing: border-box;
+}
+.search-box {
+    width: 100%;
+    height: 36px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.search-box .search {
+    position: absolute;
+    left: 16px;
+    font-size: 20px;
+    color: #888888;
+}
+.search-box input {
+    width: 97%;
+    height: 96%;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    border: 1px solid black;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 0;
+    padding: 3px 0 0 40px;
+}
+.u-list {
+    height: 547px;
+    overflow: hidden;
+    overflow-y: auto;
+    width: 99%;
+    margin-top: 12px;
+}
+.user-det{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff;
+    margin-top: 3px;
+}
+.pro-pic {
+    width: 80px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pro-pic img {
+    border-radius: 50%;
+}
+.details-hold {
+    width: 313.81px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+.details-hold .user-name {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+.details-hold .last-msg {
+    margin-top: 5px;
+}
+.details-hold .last-msg p {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 400;
+}
+.chat-hold {
+    width: 956px;
+    height: 605px;
+    position: fixed;
+    padding: 10px;
+}
+.chat-hold .msg-list {
+    width: 98%;
+    height: 83%;
+    border: 2px solid #ffffff;
+    border-radius: 3px;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+.chat-hold .send-box {
+    width: 98%;
+    height: 11%;
+    border: 2px solid #ffffff;
+    border-radius: 3px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.send-box textarea {
+    width: 88%;
+    height: 90%;
+    resize: none;
+    border-radius: 3px;
+    border: 0;
+}
+.send-box button {
+    width: 10%;
+    height: 100%;
+    border-radius: 3px;
+    border: 0;
+    background-color: #9b00f0;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+}
+.msg-list .from-hold {
+    min-width: 45%;
+    width: auto;
+    max-width: 100%;
+    min-height: 65px;
+    height: auto;
+    background-color: #ffffff; 
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+.msg-list .to-hold {
+    min-width: 45%;
+    width: auto;
+    max-width: 100%;
+    min-height: 65px;
+    height: auto;
+    background-color: #f3f3f3; 
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+.time-hold {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.time-hold p {
+    font-size: 14px;
+    color: #888888;
+}
+.msg-hold {
+    padding: 10px;
+    box-sizing: border-box;
+}
+.msg-hold p {
+    margin: 0;
+}
