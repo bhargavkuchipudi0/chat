@@ -1,22 +1,23 @@
-<div class="chat-box">
-    <ul id="messages">
-
-    </ul>
-    <div class="msg-input">
-      <input id="msg" autocomplete="off" [(ngModel)]="msg"><button class="btn btn-success" (click)="submit()" id="btn">Send</button>
+<div class="home-cont">
+    <div class="child-nav">
+        <div class="nav-btn b-r" routerLink="/home/Feeds" [ngClass]="{'is-selected':selectedRoute == 'Feeds'}" (click)="routerchange()">
+            <i class="fas fa-feather icon"></i>
+            <p>Feeds</p>
+        </div>
+        <div class="nav-btn b-r" routerLink="/home/Friends" [ngClass]="{'is-selected':selectedRoute == 'Friends'}" (click)="routerchange()">
+            <i class="fas fa-user-friends icon"></i>
+            <p>Friends</p>
+        </div>
+        <div class="nav-btn b-r" routerLink="/home/Notifications" [ngClass]="{'is-selected':selectedRoute == 'Notifications'}" (click)="routerchange()">
+            <i class="far fa-bell icon"></i>
+            <p>Notifications</p>
+        </div>
+        <div class="nav-btn" routerLink="/home/Profile" [ngClass]="{'is-selected':selectedRoute == 'Profile'}" (click)="routerchange()">
+            <i class="fas fa-address-card icon"></i>
+            <p>Profile</p>
+        </div>
     </div>
-</div>
-<div class="connected-users">
-  <ul id="con-user-li">
-
-  </ul>
-</div>
-
-<div class="all-users">
-  <div *ngFor="let x of allUsers">
-    <div class="users-holder" (click)="privateMsg(x)">
-      name:{{x.name}}
-      id:{{x.socket_id}}
+    <div>
+        <router-outlet></router-outlet>
     </div>
-  </div>
 </div>

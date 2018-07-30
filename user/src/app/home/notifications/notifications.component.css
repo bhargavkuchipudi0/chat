@@ -1,0 +1,72 @@
+.not-cont {
+    width: 85%;
+    margin: 0 auto;
+}
+.not-header {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    border: 1px solid #888888;
+}
+.not-header p {
+    margin-left: 20px;
+}
+.not-header button {
+    margin-right: 20px;
+    border: 0;
+    width: 100px;
+    height: 30px;
+    background-color: #a20023;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    outline: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.not-header .not-num {
+    width: 18px;
+    height: 18px;
+    font-size: 14px;
+    background-color: #a20023;
+    padding: 3px;
+    color: #ffffff;
+    border-radius: 50%;
+}
+.not-msg {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.not-m-hold {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid #888888;
+}
+.n-img {
+    width:40px;
+    height: 40px;
+    margin-left: 10px;
+}
+.n-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid #888888;
+}
+.not-content {
+    margin-left: 20px;
+}
+.not-content p {
+    font-size: 15px;
+    font-weight: 300;
+}

@@ -59,6 +59,7 @@ export class LoginComponent implements OnInit {
         console.log(response);
         if(response.success) {
           this.loginform.reset();
+          this.router.navigate(['/home/Feeds']);
         }
       })
     } else {

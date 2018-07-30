@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { HttpModule, Http } from "@angular/http";
-import { RouterModule, Router, Routes } from "@angular/router";
+import { RouterModule, Routes } from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -12,6 +12,10 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { ValidateService } from "./services/validate.service";
 import { AuthService } from "./services/auth.service";
 import { ChatBoxComponent } from './chat-box/chat-box.component';
+import { FeedsComponent } from './home/feeds/feeds.component'
+import { FriendsComponent } from './home/friends/friends.component';
+import { NotificationsComponent } from './home/notifications/notifications.component';
+import { ProfileComponent } from './home/profile/profile.component';
 
 const appRoutes: Routes = [
   {
@@ -21,7 +25,30 @@ const appRoutes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    children:[
+      {
+        path:'',
+        redirectTo: '/home/Feeds',
+        pathMatch: 'full'
+      },
+      { 
+        path: 'Feeds',
+        component: FeedsComponent
+      },
+      {
+        path: 'Friends',
+        component: FriendsComponent
+      },
+      {
+        path: 'Notifications',
+        component: NotificationsComponent
+      },
+      {
+        path: 'Profile',
+        component: ProfileComponent
+      }
+    ]
   },
   {
     path: 'login',
@@ -38,7 +65,11 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    ChatBoxComponent
+    ChatBoxComponent,
+    FeedsComponent,
+    FriendsComponent,
+    NotificationsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
